@@ -5,6 +5,17 @@ int wheel;
 float price;
 String colour;			// instance varable 
 
+	Car() {
+	System.out.println("object created...");
+	wheel=4;
+	price = 1000000;
+	colour="Unkonwn";
+	}
+	Car(int wheel1, float price1, String colour1){
+		wheel= wheel1;
+		price=price1;
+		colour=colour1;
+	}
 	void start() {
 		System.out.println("car start");
 	}
