@@ -22,6 +22,7 @@ String colour;			// instance varable
 		this.price = price;
 		this.colour = colour;
 		}
+	
 	void start() {
 		System.out.println("car start");
 	}
