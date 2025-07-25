@@ -23,6 +23,7 @@ public class ExtendsThreadClassExample {
 		Thread obj2 = new MyThread2();	// object ready of thread class 
 		obj1.start();
 		obj2.start();		// ready to run 
+		//obj1.start();
 			// it call run method of thread class. 
 	}
 
