@@ -36,6 +36,7 @@ public class ThreadLifeCycleMethods {
 	Thread bike1 = new Thread(gg,"bike1");
 	Thread bike2 = new Thread(gg,"bike2");
 	Thread bike3 = new Thread(gg,"bike3");
+	
 	Thread car1 = new Thread(cg,"car 1");
 	Thread car2 = new Thread(cg,"car 2");
 	System.out.println("bike1 status "+bike1.isAlive());
@@ -53,6 +54,7 @@ public class ThreadLifeCycleMethods {
 	bike3.start();
 	car1.start();
 	car2.start();
+	
 	System.out.println("bike1 status "+bike1.isAlive());
 	System.out.println("bike2 status "+bike2.isAlive());
 	System.out.println("bike3 status "+bike3.isAlive());
