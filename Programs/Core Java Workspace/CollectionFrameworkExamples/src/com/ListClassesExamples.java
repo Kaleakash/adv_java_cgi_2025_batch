@@ -2,6 +2,8 @@ package com;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Stack;
+import java.util.Vector;
 
 public class ListClassesExamples {
 
@@ -22,18 +24,42 @@ public class ListClassesExamples {
 //		System.out.println(al);
 //		System.out.println("Search "+al.contains("Tester"));
 		// 2nd Example for LinkedList 
-		LinkedList ll = new LinkedList();
-		ll.add(10);
-		ll.add(20);
-		ll.add(30);
-		ll.add(40);
-		ll.add(1,100);
-		System.out.println(ll);
-		ll.addFirst(100);
-		ll.addLast(200);
-		System.out.println(ll);
-		ll.remove(1);
-		System.out.println(ll);
+//		LinkedList ll = new LinkedList();
+//		ll.add(10);
+//		ll.add(20);
+//		ll.add(30);
+//		ll.add(40);
+//		ll.add(1,100);
+//		System.out.println(ll);
+//		ll.addFirst(100);
+//		ll.addLast(200);
+//		System.out.println(ll);
+//		ll.remove(1);
+//		System.out.println(ll);
+		
+		// 3rd Example with Vector 
+//		Vector vv = new Vector();
+//		vv.add(100);
+//		vv.add(200);
+//		vv.add(300);
+//		System.out.println(vv);
+		
+		// 4th Example of Stack 
+		
+		Stack ss = new Stack();
+		ss.push(100);
+		ss.push(200);
+		ss.push(300);
+		ss.push(400);
+		
+		System.out.println(ss);
+		System.out.println("Pop operation "+ss.pop());
+		System.out.println(ss);
+		System.out.println("Peek operation "+ss.peek());
+		System.out.println(ss);
+		System.out.println("Search operation "+ss.search(300));
+		System.out.println("Search operation "+ss.search(100));
+		System.out.println("Search operation "+ss.search(1000));
 	}
 
 }
