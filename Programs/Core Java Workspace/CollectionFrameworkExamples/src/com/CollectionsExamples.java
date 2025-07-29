@@ -17,13 +17,13 @@ public class CollectionsExamples {
 		}
 		Collections.sort(num);
 		System.out.println();
-		System.out.println("Aftre Sort - Asc");
+		System.out.println("After Sort - Asc");
 		for(int n:num) {
 			System.out.print(n+" ");
 		}
 		System.out.println();
 		Collections.reverse(num);
-		System.out.println("Aftre Sort - Desc");
+		System.out.println("After Sort - Desc");
 		for(int n:num) {
 			System.out.print(n+" ");
 		}
