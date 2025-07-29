@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 import bean.Employee;
+import utility.SalarySortAsc;
+import utility.SalarySortDesc;
 
 public class EmployeeSortOperation {
 
@@ -18,7 +20,8 @@ public class EmployeeSortOperation {
 		System.out.println(emp);
 	}
 	System.out.println("-------------");
-	Collections.sort(listOfEmployees);
+	//Collections.sort(listOfEmployees);
+	Collections.sort(listOfEmployees, new SalarySortDesc());	// 1st parameter list reference and 2nd parameter comparator reference. 
 	System.out.println("Employee details after sort");
 	for(Employee emp:listOfEmployees) {
 		System.out.println(emp);
