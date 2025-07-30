@@ -17,12 +17,38 @@ public class TestApp {
 	Statement stmt = con.createStatement();
 	System.out.println("Statement object created..");
 	
-	ResultSet rs= stmt.executeQuery("select * from employee");
-		while(rs.next()) {
-		System.out.println("id is "+rs.getInt(1)+" Name is "+rs.getString(2)+" Salary is "+rs.getFloat(3));
-		}
-		
-		rs.close();
+	// Retrieve Query 
+//	ResultSet rs= stmt.executeQuery("select * from employee");
+//		while(rs.next()) {
+//		System.out.println("id is "+rs.getInt(1)+" Name is "+rs.getString(2)+" Salary is "+rs.getFloat(3));
+//		}
+//		
+//		rs.close();
+	
+	
+		// insert query 
+//		int temp = stmt.executeUpdate("insert into employee values(104,'Ajay',48000)");
+//		if(temp>0) {
+//			System.out.println("record inserted successfully");
+//		}
+	
+	
+	// update query 
+//	int temp = stmt.executeUpdate("update employee set salary=52000 where id=100");
+//	if(temp>0) {
+//		System.out.println("record updated successfully");
+//	}else {
+//		System.out.println("record not preset");
+//	}
+
+	// delete query 
+	int temp = stmt.executeUpdate("delete from employee where id = 101");
+	if(temp>0) {
+		System.out.println("record deleted successfully");
+	}else {
+		System.out.println("record not preset");
+	}
+	
 		stmt.close();
 		con.close();
 		} catch (Exception e) {
