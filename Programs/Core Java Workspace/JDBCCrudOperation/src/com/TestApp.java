@@ -11,6 +11,7 @@ public class TestApp {
 			System.out.println("Driver Loaded...");
 	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cgi_db1", 
 			"root", "root@123");
+	System.out.println("connected");
 		} catch (Exception e) {
 			System.err.println(e);
 		}
