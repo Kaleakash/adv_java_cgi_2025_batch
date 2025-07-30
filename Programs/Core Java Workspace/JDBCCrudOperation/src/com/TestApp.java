@@ -2,8 +2,10 @@ package com;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Scanner;
 
 public class TestApp {
 
@@ -14,8 +16,8 @@ public class TestApp {
 	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cgi_db1", 
 			"root", "root@123");
 	System.out.println("connected");
-	Statement stmt = con.createStatement();
-	System.out.println("Statement object created..");
+	//Statement stmt = con.createStatement();
+	//System.out.println("Statement object created..");
 	
 	// Retrieve Query 
 //	ResultSet rs= stmt.executeQuery("select * from employee");
@@ -42,14 +44,39 @@ public class TestApp {
 //	}
 
 	// delete query 
-	int temp = stmt.executeUpdate("delete from employee where id = 101");
-	if(temp>0) {
-		System.out.println("record deleted successfully");
-	}else {
-		System.out.println("record not preset");
-	}
+//	int temp = stmt.executeUpdate("delete from employee where id = 101");
+//	if(temp>0) {
+//		System.out.println("record deleted successfully");
+//	}else {
+//		System.out.println("record not preset");
+//	}
+//	
+//		stmt.close();
 	
-		stmt.close();
+		Scanner sc = new Scanner(System.in);
+		
+		// insert record using prepared statement 
+	
+		PreparedStatement pstmt = con.prepareStatement("insert into employee values(?,?,?)");
+		System.out.println("Enter the id");
+		int id = sc.nextInt();
+			pstmt.setInt(1, id);
+		
+		System.out.println("Enter the name");
+		String name = sc.next();
+			pstmt.setString(2, name);
+		
+		System.out.println("Enter the salary");
+		float salary = sc.nextFloat();
+			pstmt.setFloat(3, salary);
+		
+		int temp = pstmt.executeUpdate();
+		if(temp>0) {
+			System.out.println("Record inserted");
+		}
+		
+		
+		pstmt.close();
 		con.close();
 		} catch (Exception e) {
 			System.err.println(e);
