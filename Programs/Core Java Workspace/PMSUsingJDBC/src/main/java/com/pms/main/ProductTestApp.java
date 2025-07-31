@@ -27,15 +27,18 @@ public class ProductTestApp {
 			case 1:	System.out.println("Enter the product id");
 					pid  = sc.nextInt();
 					
-					// call service layer and that call dao layer method 
-					// to check product present or not. 
-					System.out.println("Enter the product pname");
-					pname  = sc.next();
-					System.out.println("Enter the product price");
-					price  = sc.nextFloat();
-					Product p = new Product(pid, pname, price);
-					result = ps.storeProduct(p);
-					System.out.println(result);
+					Product pp = ps.findProduct(pid);
+					if(pp==null) {
+						System.out.println("Enter the product pname");
+						pname  = sc.next();
+						System.out.println("Enter the product price");
+						price  = sc.nextFloat();
+						Product p = new Product(pid, pname, price);
+						result = ps.storeProduct(p);
+						System.out.println(result);
+					}else {
+						System.out.println("Already product id present, we can't store");
+					}
 					break;
 					
 			case 2: System.out.println("All Product details ");
