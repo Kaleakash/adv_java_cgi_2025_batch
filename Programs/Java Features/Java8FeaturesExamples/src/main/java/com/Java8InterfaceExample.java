@@ -1,4 +1,5 @@
 package com;
+@FunctionalInterface
 interface Abc {
 	void dis1();		// by default abstract 
 	default void dis2() {			// default implementation 
@@ -13,6 +14,7 @@ interface Abc {
 	static void dis5() {			// static implementation 
 		System.out.println("Static implementation for dis5 method");
 	}
+	//void dis6();
 }
 class Test1 implements Abc {
 	@Override
@@ -27,6 +29,7 @@ class Test1 implements Abc {
 //	public static void dis4() {			// static implementation 
 //		System.out.println("Static implementation for dis4 method");
 //	}
+	public void dis6() {}
 }
 public class Java8InterfaceExample {
 
