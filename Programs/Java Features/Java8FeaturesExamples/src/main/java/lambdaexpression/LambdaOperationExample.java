@@ -3,7 +3,11 @@ interface Operation {
 	public int add(int x, int y);
 }
 interface FindLargest {
+	int A=10;
 	public String largest(int a, int b);
+	public static void info() {
+		System.out.println("A "+A);
+	}
 }
 public class LambdaOperationExample {
 	public static void main(String[] args) {
@@ -23,7 +27,7 @@ public class LambdaOperationExample {
 	System.out.println(" "+op4.add(1000, 2000));
 	//FindLargest fl = (x,y)->	x > y;
 	//System.out.println(" "+fl.largest(100, 500));
-	FindLargest fl = (x,y)-> x > y?"First number is largest ":"2nd Number is largest";
+	FindLargest fl = (x,y)-> x > y?"First number is largest ":"2nd Number is largest "+FindLargest.A;
 	System.out.println(" "+fl.largest(100, 500));
 	}
 
