@@ -12,7 +12,6 @@ class MyConsumer implements Consumer<Integer>{
 	}
 }
 public class RetrieveDataFromCollection {
-
 	public static void main(String[] args) {
 	List<Integer> list = new ArrayList<Integer>();
 	list.add(10);list.add(20);list.add(30);list.add(40);list.add(50);
@@ -26,7 +25,7 @@ public class RetrieveDataFromCollection {
 	System.out.println("Retrieve data from collection using forEach terminal operator/methdod for Stream API");
 	Consumer<Integer> cc = new MyConsumer();
 	list.forEach(cc);
-	System.out.println("Reteive data from collection using forEach with lamda");
+	System.out.println("Reteive data from collection using forEach with lambda");
 	list.forEach((n)->System.out.println(n));
 	}
 
