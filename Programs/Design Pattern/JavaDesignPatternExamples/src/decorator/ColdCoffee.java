@@ -16,6 +16,6 @@ public class ColdCoffee implements Coffee{
 	@Override
 	public String description() {
 		// TODO Auto-generated method stub
-		return "Cold , "+basicCoffee.description()+", "+(cost()+basicCoffee.cost());
+		return "Cold , "+basicCoffee.description()+"+"+cost()+"="+(cost()+basicCoffee.cost());
 	}
 }
