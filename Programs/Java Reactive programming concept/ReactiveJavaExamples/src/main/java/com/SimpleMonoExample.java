@@ -36,24 +36,31 @@ public class SimpleMonoExample {
 
 		
 		// 4th example with subscribe with 3 parameter with error 
-		Mono<String> mono = Mono.just("Welcome to Mono Reactive Programming").
-				then(Mono.error(new Exception("Exception generated")));
+//		Mono<String> mono = Mono.just("Welcome to Mono Reactive Programming").
+//				then(Mono.error(new Exception("Exception generated")));
+//		
+//		mono.subscribe(data->{
+//			System.out.println("Here going to subscribe the data");
+//			System.out.println(data);
+//			},
+//			error-> {
+//				System.out.println("This code execute if any error generate");
+//				System.out.println(error);
+//			},
+//			()-> {
+//				System.out.println("This code executed after subscribed successfully");
+//			}
+//			
+//		);
+//		
+//		System.out.println("Normal Statement");
 		
-		mono.subscribe(data->{
-			System.out.println("Here going to subscribe the data");
-			System.out.println(data);
-			},
-			error-> {
-				System.out.println("This code execute if any error generate");
-				System.out.println(error);
-			},
-			()-> {
-				System.out.println("This code executed after subscribed successfully");
-			}
-			
-		);
 		
-		System.out.println("Normal Statement");
+		//5th example with optional (empty)
+//		Mono<String> mono = Mono.justOrEmpty(null);
+//		mono.subscribe(ele->System.out.println(ele));
+//		
+//		System.out.println("Done!");
 	}
 
 }
