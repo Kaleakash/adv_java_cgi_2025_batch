@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/JavaScript">
+        function normalFunction() {
+            document.write("This is a normal function.");
+        }
+        function add(a,b){
+            return a + b;
+        }
+        normalFunction();
+    </script>
+</head>
+<body>
+    <script type="text/JavaScript">
+        normalFunction();   // calling from body script tag 
+        var result = add(10,20);
+        document.write("<br>Result of add function: " + result);
+    </script>
+</body>
+</html>
