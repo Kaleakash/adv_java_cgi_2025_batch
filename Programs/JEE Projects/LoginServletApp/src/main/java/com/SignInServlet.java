@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +44,9 @@ public class SignInServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		String emailid = request.getParameter("emailid");
 		String password = request.getParameter("password");
+		RequestDispatcher rd1= request.getRequestDispatcher("Dashboard");
+		RequestDispatcher rd2 = request.getRequestDispatcher("login.html");
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cgi_db1", "root", "root@123");
@@ -52,12 +56,15 @@ public class SignInServlet extends HttpServlet {
 	ResultSet rs = pstmt.executeQuery();
 	if(rs.next()) {
 		pw.println("successfully login");
+		rd1.forward(request, response); 
 	}else {
 		pw.println("failure try once again");
+		rd2.include(request, response);
 	}
 		} catch (Exception e) {
 			pw.println(e.getMessage());
 		}
+		response.setContentType("text/html");
 	}
 
 }

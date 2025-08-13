@@ -2,11 +2,7 @@ package com;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SignUpServlet
+ * Servlet implementation class Dashboard
  */
-@WebServlet("/SignUpServlet")
-public class SignUpServlet extends HttpServlet {
+@WebServlet("/Dashboard")
+public class Dashboard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignUpServlet() {
+    public Dashboard() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,25 +37,8 @@ public class SignUpServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
-		String emailid = request.getParameter("emailid");
-		String password = request.getParameter("password");
-		RequestDispatcher rd = request.getRequestDispatcher("signup.html");
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cgi_db1", "root", "root@123");
-	PreparedStatement pstmt = con.prepareStatement("insert into login values(?,?)");
-	pstmt.setString(1, emailid);
-	pstmt.setString(2, password);
-	int result = pstmt.executeUpdate();
-	if(result>0) {
-		pw.println("Account created successfully");
-		
-	}
-		} catch (Exception e) {
-			pw.println(e.getMessage());
-		}finally {
-			rd.include(request, response);
-		}
+		pw.println("Welcome to Home Page");
+		pw.println("<a href='login.html'>Logout</a>");
 		response.setContentType("text/html");
 	}
 
