@@ -7,12 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Welcome to Simple JSP Page</h2>
-<%
-	out.println("Welcome to JSP page");
-%>
-<br/>
-<a href="simpleCalculation.jsp">Scripting Tag Example</a> |
-<a href="login.jsp">Login Page</a> |
+<h2>Welcome to Home page</h2>
+<a href="login.jsp">Logout</a>
 </body>
 </html>
