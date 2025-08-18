@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,20 +38,24 @@ public class ProductsFindController extends HttpServlet {
 		ProductService ps = new ProductService();
 		List<Product> listOfProducts= ps.findAllProducts();
 		// 1st display data using Servlet 
-		pw.println("<h3>All Products </h3>");
-		pw.println("<table border=1>");
-		pw.println("<tr><th>PId</td> <th>PName</th> <th>Price</th></tr>");
-		Iterator<Product> li = listOfProducts.iterator();
-		while(li.hasNext()) {
-			Product p = li.next();
-			pw.println("<tr>");
-		pw.println("<td>"+p.getPid()+"</td><td>"+p.getPname()+"</td><td>"+p.getPrice()+"</td>");
-			pw.println("</tr>");
-			
-		}
-		pw.println("</table>");
-		pw.println("<a href='index.jsp'>Back</a>");
-		response.setContentType("text/html");
+//		pw.println("<h3>All Products </h3>");
+//		pw.println("<table border=1>");
+//		pw.println("<tr><th>PId</td> <th>PName</th> <th>Price</th></tr>");
+//		Iterator<Product> li = listOfProducts.iterator();
+//		while(li.hasNext()) {
+//			Product p = li.next();
+//			pw.println("<tr>");
+//		pw.println("<td>"+p.getPid()+"</td><td>"+p.getPname()+"</td><td>"+p.getPrice()+"</td>");
+//			pw.println("</tr>");
+//			
+//		}
+//		pw.println("</table>");
+//		pw.println("<a href='index.jsp'>Back</a>");
+//		response.setContentType("text/html");
+	request.setAttribute("listOfProducts", listOfProducts);
+		RequestDispatcher rd = request.getRequestDispatcher("viewProduct.jsp");
+		rd.forward(request, response);
+		
 	}
 
 	/**
