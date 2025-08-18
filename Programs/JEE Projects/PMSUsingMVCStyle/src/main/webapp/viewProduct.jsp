@@ -32,7 +32,7 @@ while(li.hasNext()){
 	<% 
 }
 %>
-<a href="index.jsp">Back</a>
 </table>
+<a href="index.jsp">Back</a>
 </body>
 </html>
