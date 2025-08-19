@@ -40,15 +40,22 @@ public class DemoTest {
 		
 		// 3rd Example 
 		
-		Employee e7 = (Employee)bean.getBean("emp3");
-		System.out.println(e7);
+//		Employee e7 = (Employee)bean.getBean("emp3");
+//		System.out.println(e7);
+//		
+//		Employee e8 = (Employee)bean.getBean("emp4");
+//		System.out.println(e8);
+//		
+//		
+//		Employee e9 = (Employee)bean.getBean("emp5");
+//		System.out.println(e9);
 		
-		Employee e8 = (Employee)bean.getBean("emp4");
-		System.out.println(e8);
+		// 4th Example 
+		//Address ad1 = (Address)bean.getBean("add1");
+		//System.out.println(ad1);
 		
-		
-		Employee e9 = (Employee)bean.getBean("emp5");
-		System.out.println(e9);
+		Employee e10 = (Employee)bean.getBean("emp6");
+		System.out.println(e10);
 		
 	}
 

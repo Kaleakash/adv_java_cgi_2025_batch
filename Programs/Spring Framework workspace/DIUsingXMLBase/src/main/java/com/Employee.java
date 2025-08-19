@@ -4,6 +4,8 @@ public class Employee {
 private int id;
 private String name;
 private float salary;
+private Address add;
+
 
 	public void display() {
 		System.out.println("this is employee class method");
@@ -23,9 +25,26 @@ private float salary;
 		this.salary = salary;
 	}
 
+	
+	public Employee(int id, String name, float salary, Address add) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+		this.add = add;
+	}
+
+	public Address getAdd() {
+		return add;
+	}
+
+	public void setAdd(Address add) {
+		this.add = add;
+	}
+
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", add=" + add + "]";
 	}
 
 	public int getId() {
