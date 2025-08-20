@@ -33,6 +33,13 @@ public class ProductService {
 			return "Product not present";
 		}
 	}
+	
+	public List<Product> findAllProductsAsList() {
+		// apply business logic if you need. 
+		return productDao.findAllProductAsListOfProduct();
+	}
+	
+	
 	public String updateProduct(Product product) {
 		if(productDao.updateProduct(product)>0) {
 			return "Product updated successfully";

@@ -24,7 +24,7 @@ public class DemoTest {
 		String con="";
 		System.out.println("PMS using JdbcTemplate");
 		do {
-			System.out.println("1: Add Product 2 : View Product 3:Delete Product 4 : Update the Product");
+			System.out.println("1: Add Product 2 : View Product 3:Delete Product 4 : Update the Product 5 : View all product as list of product");
 			System.out.println("Enter your choice");
 			int choice = sc.nextInt();
 			switch (choice) {
@@ -69,7 +69,13 @@ public class DemoTest {
 					result = ps.updateProduct(p1);
 					System.out.println(result);
 					break;
-		       
+		     
+			case 5 : System.out.println("All Product as List of Product");
+			        List<Product> listOfProduct = ps.findAllProductsAsList();
+			        for(Product pp : listOfProduct) {
+			        	System.out.println(pp);   // call toString method 
+			        }
+			        break;
 			default:System.out.println("Wrong choice");
 				break;
 			}
