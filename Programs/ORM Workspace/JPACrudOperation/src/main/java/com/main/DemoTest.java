@@ -1,9 +1,13 @@
 package com.main;
 
+import java.util.Iterator;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import com.bean.Product;
 
@@ -49,12 +53,56 @@ public class DemoTest {
 //	}
 	
 	// find the record using pid 
-	Product productFromDb  =  manager.find(Product.class, 101);
-	if(productFromDb==null) {
-		System.out.println("Record not present");
-	}else {
-		System.out.println(productFromDb);
+//	Product productFromDb  =  manager.find(Product.class, 101);
+//	if(productFromDb==null) {
+//		System.out.println("Record not present");
+//	}else {
+//		System.out.println(productFromDb);
+//	}
+	
+	// retrieve all records using JPQL 
+//	Query qry = manager.createQuery("select p from Product p");
+//	List<Product> listOfProduct = qry.getResultList();
+//	System.out.println("Number of records are "+listOfProduct.size());
+//	Iterator<Product> li = listOfProduct.iterator();
+//	while(li.hasNext()) {
+//		Product p = li.next();
+//		System.out.println(p);
+//	}
+	
+	// retrieve all records using JPQL with where clause 
+//	Query qry = manager.createQuery("select p from Product p where p.pid=101");
+//	List<Product> listOfProduct = qry.getResultList();
+//	System.out.println("Number of records are "+listOfProduct.size());
+//	Iterator<Product> li = listOfProduct.iterator();
+//	while(li.hasNext()) {
+//		Product p = li.next();
+//		System.out.println(p);
+//	}
+	
+	
+	// retrieve all records using JPQL with where clause with value dynamic with ? 
+//		Query qry = manager.createQuery("select p from Product p where p.pid=?1");
+//		qry.setParameter(1, 101);
+//		List<Product> listOfProduct = qry.getResultList();
+//		System.out.println("Number of records are "+listOfProduct.size());
+//		Iterator<Product> li = listOfProduct.iterator();
+//		while(li.hasNext()) {
+//			Product p = li.next();
+//			System.out.println(p);
+//		}
+	
+	// retrieve all records using JPQL with where clause with value dynamic with label query 
+	Query qry = manager.createQuery("select p from Product p where p.pid=:product_id");
+	qry.setParameter("product_id", 101);
+	List<Product> listOfProduct = qry.getResultList();
+	System.out.println("Number of records are "+listOfProduct.size());
+	Iterator<Product> li = listOfProduct.iterator();
+	while(li.hasNext()) {
+		Product p = li.next();
+		System.out.println(p);
 	}
+	
 	}
 
 }
