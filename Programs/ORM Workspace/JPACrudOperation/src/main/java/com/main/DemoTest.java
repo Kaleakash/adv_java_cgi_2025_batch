@@ -113,13 +113,15 @@ public class DemoTest {
 //		}
 
 	// Retrieval partial object ie product pname and price
-	Query qry = manager.createQuery("select p.pname,p.price from Product p");
-	List<Object[]> listOfProduct = qry.getResultList();
-	Iterator<Object[]> li = listOfProduct.iterator();
-	while(li.hasNext()) {
-		Object []obj=li.next();
-		System.out.println(" PName "+obj[0]+" Price is "+obj[1]);
-	}
+//	Query qry = manager.createQuery("select p.pname,p.price from Product p");
+//	List<Object[]> listOfProduct = qry.getResultList();
+//	Iterator<Object[]> li = listOfProduct.iterator();
+//	while(li.hasNext()) {
+//		Object []obj=li.next();
+//		System.out.println(" PName "+obj[0]+" Price is "+obj[1]);
+//	}
+	
+	
 	}
 
 }
