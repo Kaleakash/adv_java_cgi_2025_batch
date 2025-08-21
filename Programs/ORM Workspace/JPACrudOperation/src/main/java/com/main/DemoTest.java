@@ -93,16 +93,33 @@ public class DemoTest {
 //		}
 	
 	// retrieve all records using JPQL with where clause with value dynamic with label query 
-	Query qry = manager.createQuery("select p from Product p where p.pid=:product_id");
-	qry.setParameter("product_id", 101);
-	List<Product> listOfProduct = qry.getResultList();
-	System.out.println("Number of records are "+listOfProduct.size());
-	Iterator<Product> li = listOfProduct.iterator();
-	while(li.hasNext()) {
-		Product p = li.next();
-		System.out.println(p);
-	}
+//	Query qry = manager.createQuery("select p from Product p where p.pid=:product_id");
+//	qry.setParameter("product_id", 101);
+//	List<Product> listOfProduct = qry.getResultList();
+//	System.out.println("Number of records are "+listOfProduct.size());
+//	Iterator<Product> li = listOfProduct.iterator();
+//	while(li.hasNext()) {
+//		Product p = li.next();
+//		System.out.println(p);
+//	}
 	
+	// Retrieval partial object ie product id
+//		Query qry = manager.createQuery("select p.pid from Product p");
+//		List<Integer> listOfProduct = qry.getResultList();
+//		Iterator<Integer> li = listOfProduct.iterator();
+//		while(li.hasNext()) {
+//			int pid = li.next();
+//			System.out.println(pid);
+//		}
+
+	// Retrieval partial object ie product pname and price
+	Query qry = manager.createQuery("select p.pname,p.price from Product p");
+	List<Object[]> listOfProduct = qry.getResultList();
+	Iterator<Object[]> li = listOfProduct.iterator();
+	while(li.hasNext()) {
+		Object []obj=li.next();
+		System.out.println(" PName "+obj[0]+" Price is "+obj[1]);
+	}
 	}
 
 }
