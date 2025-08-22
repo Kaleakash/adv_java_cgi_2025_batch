@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Welcome to Spring MVC App!</h2>
-<a href="hello">Call Spring MVC Method- Hello method</a> |
-<a href="hi">Call Spring MVC Method- Hi method</a> |
-<a href="login.jsp">Login Page</a>
+<h2>Successfully login!</h2>
 </body>
 </html>
