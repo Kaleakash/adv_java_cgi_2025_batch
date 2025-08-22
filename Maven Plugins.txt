@@ -287,7 +287,7 @@ spring orm (spring with hibernate or jpa)
 
 JDBC Template 
 
-<bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate" scope="singleton">
+<bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate" scope="singleton" >
 	<property name="dataSource" ref="ds"></property>
 </bean>
 

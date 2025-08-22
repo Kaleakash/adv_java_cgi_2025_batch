@@ -16,5 +16,15 @@
 	<input type="submit" value="SignIn"/>
 	<input type="reset" value="reset"/>
 </form>
+<hr/>
+<h2>Login Page with DB</h2>
+<form action="signInFromDb" method="post">
+	<label>EmailId</label>
+	<input type="email" name="emailid"/><br/>
+	<label>Password</label>
+	<input type="password" name="password"/><br/>
+	<input type="submit" value="SignIn"/>
+	<input type="reset" value="reset"/>
+</form>
 </body>
 </html>

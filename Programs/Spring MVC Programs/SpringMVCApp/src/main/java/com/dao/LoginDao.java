@@ -1,0 +1,24 @@
+package com.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.bean.Login;
+
+@Repository
+public class LoginDao {
+
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+	
+	public int signIn(Login login) {
+		try {
+return jdbcTemplate.queryForList("select * from login where emailid=? and password =?", 
+		login.getEmailid(),login.getPassword()).size();			
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+}
