@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<span th:text="${result}" style="color:red"></span>
 
 <h2 th:text="${msg}"></h2>
 <table border="1">
@@ -12,11 +13,13 @@
 		<th>PId</th>
 		<th>PName</th>
 		<th>Price</th>
+		<th>Order Place</th>
 	</tr>
 	<tr th:each="product:${products}">
 		<td th:text="${product.pid}"></td>
 		<td th:text="${product.pname}"></td>
 		<td th:text="${product.price}"></td>
+		<td><a th:href="@{orderPlace(pid=${product.pid})}">Place Order</a></td>
 	</tr>
 </table>
 <br/>
