@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -87,4 +89,14 @@ public class ProductController {
 		model.addAttribute("result", result);   // result hold confirmation result of operation 
 		return "updateProduct";
 	}
+	
+	@RequestMapping(value = "/viewProducts",method = RequestMethod.GET)
+	public String findProducts(Model model) {
+		List<Product> listOfProduct = productService.findAllProduct();
+		model.addAttribute("msg", "Update Product");
+		model.addAttribute("products", listOfProduct);
+		return "viewProducts";
+	}
+	
+	
 }
