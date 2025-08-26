@@ -31,8 +31,27 @@ public class ProductController {
 		return "addProduct";
 	}
 	
+	
+		// http://localhost:9090/deleteProductPage
+		@RequestMapping(value = "/deleteProductPage",method = RequestMethod.GET)
+		public String openDeleteProductPage(Product product,Model model) { // DI for Product  and model
+			model.addAttribute("product", product);// store product in model scope 
+			model.addAttribute("msg", "Delete Product");// store msg in model scope 
+			return "deleteProduct";
+		}
+		
+		
+		// http://localhost:9090/addProductPage
+		@RequestMapping(value = "/updateProductPage",method = RequestMethod.GET)
+		public String openUpdateProductPage(Product product,Model model) { // DI for Product  and model
+			model.addAttribute("product", product);// store product in model scope 
+			model.addAttribute("msg", "Update Product");// store msg in model scope 
+			return "updateProduct";
+		
+		}
+		
 	@RequestMapping(value = "/storeProduct",method = RequestMethod.POST)
-	public String stoeProductInDb(Product product,Model model) { // DI for Product  and model
+	public String storeProductInDb(Product product,Model model) { // DI for Product  and model
 		System.out.println(product);	// value get 
 		String result = productService.storeProduct(product);	
 		product.setPid(0);
@@ -44,4 +63,28 @@ public class ProductController {
 		return "addProduct";
 	}
 	
+	
+	@RequestMapping(value = "/deleteProduct",method = RequestMethod.POST)
+	public String deleteProductFromDb(Product product,Model model) { // DI for Product  and model
+		System.out.println(product);	// value get 
+		String result = productService.deleteProduct(product.getPid());	
+		product.setPid(0);
+		model.addAttribute("product", product);// store product in model scope 
+		model.addAttribute("msg", "Delete Product");// store msg in model scope 
+		model.addAttribute("result", result);   // result hold confirmation result of operation 
+		return "deleteProduct";
+	}
+	
+	@RequestMapping(value = "/updateProduct",method = RequestMethod.POST)
+	public String updateProductFromDb(Product product,Model model) { // DI for Product  and model
+		System.out.println(product);	// value get 
+		String result = productService.updateProduct(product);	
+		product.setPid(0);
+		product.setPname("");
+		product.setPrice(0.0f);
+		model.addAttribute("product", product);// store product in model scope 
+		model.addAttribute("msg", "Update Product");// store msg in model scope 
+		model.addAttribute("result", result);   // result hold confirmation result of operation 
+		return "updateProduct";
+	}
 }

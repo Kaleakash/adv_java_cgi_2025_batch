@@ -32,6 +32,47 @@ public class ProductDao {
 		}
 	}
 	
+	public int deleteProduct(int pid) {
+		try {
+			EntityManager manager = emf.createEntityManager();
+			EntityTransaction tran = manager.getTransaction();
+			Product productFormDb = manager.find(Product.class, pid);
+			if(productFormDb==null) {
+				return 0;
+			}else {
+				tran.begin();
+				manager.remove(productFormDb);
+				tran.commit();
+			return 1;
+			}
+			
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+	
+	public int updateProduct(Product product) {
+		try {
+			EntityManager manager = emf.createEntityManager();
+			EntityTransaction tran = manager.getTransaction();
+			Product productFormDb = manager.find(Product.class, product.getPid());
+			if(productFormDb==null) {
+				return 0;
+			}else {
+				tran.begin();
+				productFormDb.setPrice(product.getPrice());
+				manager.merge(productFormDb);
+				tran.commit();
+			return 1;
+			}
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+	
+	
 	public List<Product> findAllProducts() {
 		EntityManager manager = emf.createEntityManager();
 		Query qry = manager.createQuery("select p from Product p");
