@@ -83,6 +83,28 @@ public class EmployeeController {
 			System.out.println(employee);   // call toString method to display information on console 
 			return "Data stored for "+employee.getName();
 		}
+		
+		// http://localhost:8080/updateEmployeeSalary
+		// method : put
+		// data : {"id":100,salary":56000}
+			
+			@RequestMapping(value = "updateEmployeeSalary",method = RequestMethod.PUT,
+					consumes = MediaType.APPLICATION_JSON_VALUE)
+						// @RequestBody annotation extract the data from request body part of convert to java object. 
+			public String updateEmployeeSalary(@RequestBody Employee employee) {
+				System.out.println(employee);   // call toString method to display information on console 
+				employee.setSalary(employee.getSalary()+1000);
+				return "Your salary updated "+employee.getSalary();
+			}
+			
+			// http://localhost:8080/deleteEmployee/100
+			// method : delete
+				
+				@RequestMapping(value = "deleteEmployee/{id}",method = RequestMethod.DELETE)
+				public String deleteEmployee(@PathVariable("id") int id) {
+						// we can pass this value to service layer
+					return "The record with id as "+id+" deleted successfully";
+				}
 }
 
 
