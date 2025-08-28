@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -71,5 +72,21 @@ public class EmployeeController {
 		}
 			return "Employee not present";
 		}
-	
+	// http://localhost:8080/storeEmployee
+	// method : post 
+	// data : {"id":100,"name":"Ravi","salary":56000}
+		
+		@RequestMapping(value = "storeEmployee",method = RequestMethod.POST,
+				consumes = MediaType.APPLICATION_JSON_VALUE)
+					// @RequestBody annotation extract the data from request body part of convert to java object. 
+		public String storeEmployee(@RequestBody Employee employee) {
+			System.out.println(employee);   // call toString method to display information on console 
+			return "Data stored for "+employee.getName();
+		}
 }
+
+
+
+
+
+
