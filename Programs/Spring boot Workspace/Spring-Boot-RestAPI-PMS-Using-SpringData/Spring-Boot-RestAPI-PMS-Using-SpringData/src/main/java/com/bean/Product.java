@@ -1,7 +1,11 @@
 package com.bean;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Product {
@@ -10,6 +14,16 @@ private int pid;
 private String pname;
 private int price;
 private int qty;
+@OneToMany
+@JoinColumn(name = "pid")
+private List<Orders> listOfOrders;
+
+public List<Orders> getListOfOrders() {
+	return listOfOrders;
+}
+public void setListOfOrders(List<Orders> listOfOrders) {
+	this.listOfOrders = listOfOrders;
+}
 public int getQty() {
 	return qty;
 }
