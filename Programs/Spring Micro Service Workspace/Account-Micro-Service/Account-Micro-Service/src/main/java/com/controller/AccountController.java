@@ -19,7 +19,9 @@ public class AccountController {
 
 	@Autowired
 	AccountService accountService;
-	
+	// http://localhost:8383/account/create
+	// method : post 
+	// data : {"accno":100,"name":"raj","emailId":"raj@gmail.co","amount":1400}
 	
 //	@RequestMapping(value = "create",
 //			method = RequestMethod.POST,
@@ -30,11 +32,18 @@ public class AccountController {
 		return accountService.createAccount(Account);
 	}
 	
+	// http://localhost:8383/account/findBalance/100
+	// http://localhost:8383/account/findBalance/1000
+		// method : get 
+	
 	@GetMapping(value = "findBalance/{accno}")
 	public String findBalance(@PathVariable int accno) {
 		return accountService.findAccountBalance(accno);
 	}
 
+	// http://localhost:8383/account/findAccount/raj@gmail.co
+	
+	// method : GET 
 	
 	@GetMapping(value = "findAccount/{emailId}")
 	public int findBalance(@PathVariable String emailId) {
