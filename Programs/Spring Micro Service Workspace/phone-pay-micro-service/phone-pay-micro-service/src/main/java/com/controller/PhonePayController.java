@@ -2,6 +2,8 @@ package com.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,5 +27,14 @@ public class PhonePayController {
 	@PostMapping(value = "create",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String phonePayAccountCreate(@RequestBody PhonePay phonePay) {
 		return phonePayService.createPhonePayAccount(phonePay);
+	}
+	
+	//  http://localhost:8484/phonepay/findBalance/1
+	//  http://localhost:8484/phonepay/findBalance/2
+	
+	@GetMapping(value = "findBalance/{ppid}")
+	public String findBalance(@PathVariable int ppid) {
+		System.out.println("ppid is "+ppid);
+		return phonePayService.findBalance(ppid);
 	}
 }
