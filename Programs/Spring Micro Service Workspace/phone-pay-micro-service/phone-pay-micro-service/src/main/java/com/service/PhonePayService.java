@@ -46,7 +46,7 @@ public class PhonePayService {
 			PhonePay phonePay = result.get();
 			int accno = phonePay.getAccno();
 	//		String info = restTemplate.getForObject("http://localhost:8383/account/findBalance/100", String.class);
-			String info = restTemplate.getForObject("http://ACCOUNT-MICRO-SERVICE/account/findBalance/100", String.class);
+			String info = restTemplate.getForObject("http://ACCOUNT-MICRO-SERVICE/account/findBalance/"+accno, String.class);
 			return "Fro Phone Pay Micro Service "+info;
 		}else {
 				return "Phone Pay Account not exits";
