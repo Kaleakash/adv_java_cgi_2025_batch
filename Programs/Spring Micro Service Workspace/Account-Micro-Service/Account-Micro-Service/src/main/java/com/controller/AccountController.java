@@ -46,7 +46,7 @@ public class AccountController {
 	// method : GET 
 	
 	@GetMapping(value = "findAccount/{emailId}")
-	public int findBalance(@PathVariable String emailId) {
+	public int findAccountNumber(@PathVariable String emailId) {
 		return accountService.findAccountNumbre(emailId);
 	}
 }
