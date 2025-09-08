@@ -30,6 +30,7 @@ public class ProductService {
 				map(products->new ProductReponse<>("all product details", products));		
 	}
 	public Mono<ProductReponse<Product>> findProduct(int pid) {
+		System.out.println("in product service "+pid);
 		return productRepository.findById(pid).
 		map(p->new ProductReponse<Product>("Product details ", p)).
 		switchIfEmpty(Mono.just(new ProductReponse<Product>("Product not found with id as "+pid, null))).
