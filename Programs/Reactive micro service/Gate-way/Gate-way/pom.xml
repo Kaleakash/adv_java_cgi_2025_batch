@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>gate-way-app</artifactId>
+	<artifactId>Gate-way</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gate-way-app</name>
+	<name>Gate-way</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -37,7 +37,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway-mvc</artifactId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

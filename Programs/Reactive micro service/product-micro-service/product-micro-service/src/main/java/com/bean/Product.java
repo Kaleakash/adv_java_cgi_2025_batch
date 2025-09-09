@@ -2,34 +2,45 @@ package com.bean;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 // create table product(pid int primary key auto_increment,pname varchar(30),price float);
 @Table("product")
+//@Setter
+//@Getter
+//@AllArgsConstructor
+//@ToString
+@Data
 public class Product {
 @Id
 private int pid;
 private String pname;
 private float price;
-public int getPid() {
-	return pid;
-}
-public void setPid(int pid) {
-	this.pid = pid;
-}
-public String getPname() {
-	return pname;
-}
-public void setPname(String pname) {
-	this.pname = pname;
-}
-public float getPrice() {
-	return price;
-}
-public void setPrice(float price) {
-	this.price = price;
-}
-@Override
-public String toString() {
-	return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + "]";
-}
+//public int getPid() {
+//	return pid;
+//}
+//public void setPid(int pid) {
+//	this.pid = pid;
+//}
+//public String getPname() {
+//	return pname;
+//}
+//public void setPname(String pname) {
+//	this.pname = pname;
+//}
+//public float getPrice() {
+//	return price;
+//}
+//public void setPrice(float price) {
+//	this.price = price;
+//}
+//@Override
+//public String toString() {
+//	return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + "]";
+//}
 
 }
