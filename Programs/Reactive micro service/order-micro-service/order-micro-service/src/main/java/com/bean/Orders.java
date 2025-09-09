@@ -2,13 +2,21 @@ package com.bean;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
-// create table product(pid int primary key auto_increment,pname varchar(30),price float);
-@Table("product")
-public class Product {
+
+@Table("orders")
+public class Orders {
 @Id
+private int oid;
 private int pid;
 private String pname;
 private float price;
+
+public int getOid() {
+	return oid;
+}
+public void setOid(int oid) {
+	this.oid = oid;
+}
 public int getPid() {
 	return pid;
 }
@@ -27,9 +35,6 @@ public float getPrice() {
 public void setPrice(float price) {
 	this.price = price;
 }
-@Override
-public String toString() {
-	return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + "]";
-}
+
 
 }

@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Product;
-import com.reponse.ProductReponse;
 import com.repository.ProductRepository;
+import com.response.ProductResponse;
 
 import reactor.core.publisher.Mono;
 
@@ -17,24 +17,24 @@ public class ProductService {
 	@Autowired
 	ProductRepository productRepository;
 	
-	public Mono<ProductReponse<Product>> storeProduct(Product product) {
+	public Mono<ProductResponse<Product>> storeProduct(Product product) {
 		return productRepository.save(product).
-		map(p->new ProductReponse<Product>("Product stored", p)).
-		onErrorResume(e->Mono.just(new ProductReponse<Product>("Error generated "+e.getMessage(),null)));
+		map(p->new ProductResponse<Product>("Product stored", p)).
+		onErrorResume(e->Mono.just(new ProductResponse<Product>("Error generated "+e.getMessage(),null)));
 	}
 	
 	
-	public Mono<ProductReponse<List<Product>>> findAllProducts() {
+	public Mono<ProductResponse<List<Product>>> findAllProducts() {
 		return productRepository.findAll().
 				collectList().
-				map(products->new ProductReponse<>("all product details", products));		
+				map(products->new ProductResponse<>("all product details", products));		
 	}
-	public Mono<ProductReponse<Product>> findProduct(int pid) {
+	public Mono<ProductResponse<Product>> findProduct(int pid) {
 		System.out.println("in product service "+pid);
 		return productRepository.findById(pid).
-		map(p->new ProductReponse<Product>("Product details ", p)).
-		switchIfEmpty(Mono.just(new ProductReponse<Product>("Product not found with id as "+pid, null))).
-		onErrorResume(e->Mono.just(new ProductReponse<Product>("Error generated "+e.getMessage(),null)));	
+		map(p->{ System.out.println(p); return new ProductResponse<Product>("Product details ", p);}).
+		switchIfEmpty(Mono.just(new ProductResponse<Product>("Product not found with id as "+pid, null))).
+		onErrorResume(e->Mono.just(new ProductResponse<Product>("Error generated "+e.getMessage(),null)));	
 		
 	}
 }

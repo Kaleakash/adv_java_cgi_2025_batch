@@ -1,6 +1,6 @@
-package com.reponse;
+package com.response;
 
-public class ProductReponse<T> {
+public class ProductResponse<T> {
 private String message;
 private T data;
 public String getMessage() {
@@ -15,11 +15,11 @@ public T getData() {
 public void setData(T data) {
 	this.data = data;
 }
-public ProductReponse() {
+public ProductResponse() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public ProductReponse(String message, T data) {
+public ProductResponse(String message, T data) {
 	super();
 	this.message = message;
 	this.data = data;

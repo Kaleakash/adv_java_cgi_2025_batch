@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bean.Product;
-import com.reponse.ProductReponse;
+import com.response.ProductResponse;
 import com.service.ProductService;
 
 import reactor.core.publisher.Mono;
@@ -25,17 +25,17 @@ public class ProductController {
 	ProductService productService;
 	
 	@PostMapping(value = "store",produces = MediaType.APPLICATION_JSON_VALUE)
-	public Mono<ProductReponse<Product>> storeProduct(@RequestBody Product product){
+	public Mono<ProductResponse<Product>> storeProduct(@RequestBody Product product){
 		return productService.storeProduct(product);
 	}
 	
 	@GetMapping(value = "find")
-	public Mono<ProductReponse<List<Product>>> findAllProducts() {
+	public Mono<ProductResponse<List<Product>>> findAllProducts() {
 		return productService.findAllProducts();
 	}
 	
 	@GetMapping(value = "findbyid/{pid}")
-	public Mono<ProductReponse<Product>> findById(@PathVariable int pid) {
+	public Mono<ProductResponse<Product>> findById(@PathVariable int pid) {
 		return productService.findProduct(pid);
 	}
 	
